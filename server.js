@@ -37,19 +37,6 @@ app.get('/userEvents/:userid', (req, res) => {
         });
 });
 
-const processEvent = (event) => {
-    // Calculate the user's revenue
-    const revenue = event.name === 'add_revenue' ? event.value : -event.value;
-
-    // Update the user's revenue in the database
-    pool.query('UPDATE users_revenue SET revenue = revenue + $1 WHERE user_id = $2', [revenue, event.userId])
-        .catch(error => {
-            console.error('Error updating user revenue:', error);
-        }).then((a)=>{
-         console.log('saved', event)
-    });
-};
-
 const saveEventToFile = (event) => {
     const eventString = JSON.stringify(event);
     fs.appendFile('events-server.json', eventString + '\n', (err) => {
