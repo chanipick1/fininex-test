@@ -22,20 +22,20 @@ Set up Docker
 
 Install Docker: Visit the official Docker website (https://www.docker.com) and download the Docker Desktop application for your operating system. Follow the installation instructions to install Docker.
 ```
-npm docker-build
+npm run docker-build
 ```
 ### Run
 The database is running in docker:
 ```
-npm docker-run
+npm run docker-run
 ```
 ```
-npm start-server
+npm run start-server
 ```
 ```
-npm start-client
+npm run start-client
 ```
 To run the data_processor please use this command with file name argument
 ```
-ode data_processor.js events1.jsonl
+node data_processor.js events1.jsonl
 ```
